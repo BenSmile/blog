@@ -1,36 +1,75 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Blog Management System
+
+This project is a Blog Management System built using Next.js with TypeScript. It integrates with the JSONPlaceholder API to handle blog-related data and uses `next-auth` for Google authentication.
+
+## Features
+
+- **List Posts:** Fetch and display a list of posts from JSONPlaceholder.
+- **View Post Details:** Display details of a post, including comments and author information.
+- **Add a Post:** Create a form to submit a new post (simulation only).
+- **Google Authentication:** Users can sign in with their Google account.
+- **Responsive Design:** Ensures the application works on various devices.
+- **Server-Side Rendering:** Utilizes Next.js's SSR for better SEO and performance.
+- **Type-Safe:** TypeScript is used across the project for type safety.
+- **Testing:** Unit and integration tests using Jest and React Testing Library.
+
+## Technologies Used
+
+- **Next.js** - A React framework for production
+- **TypeScript** - Type-safe JavaScript
+- **fetch API** - For data fetching
+- **Tailwind CSS** - A utility-first CSS framework for styling
+- **next-auth** - Authentication library for Next.js
+- **Jest** - Testing framework
+- **React Testing Library** - Testing utilities for React components
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Node.js (v20.x or higher)
+- npm or yarn
+- Google Cloud project for OAuth 2.0 credentials
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Installation
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. Clone the repository
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+   ```bash
+   $ git clone https://github.com/BenSmile/blog.git
+   cd blog-management
+   ```
 
-## Learn More
+2. Move to the directory
 
-To learn more about Next.js, take a look at the following resources:
+   ```
+   $ cd blog
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+3. Install dependancies
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+   ```
+   $ npm install
+   ```
 
-## Deploy on Vercel
+4. Create `.env` file as below
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+   ```
+   GOOGLE_ID=XXXXXXX-XXXXXXXXXX.apps.googleusercontent.com
+   GOOGLE_CLIENT_SECRET=XXXXX-XXXXXXXXXXX
+   NEXTAUTH_URL=http://localhost:3000
+   NEXTAUTH_URL_INTERNAL=http://localhost:3000
+   NEXTAUTH_SECRET=XXXXXXXXXXXXXXXXXXXXXXXXXXX
+   ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+5. Run the app
+
+   ```
+   npm run dev
+   ```
+
+6. Testing
+
+   ```
+   npm test
+   ```
