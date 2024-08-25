@@ -1,5 +1,3 @@
-// __tests__/Page.test.tsx
-
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { useRouter } from 'next/navigation';

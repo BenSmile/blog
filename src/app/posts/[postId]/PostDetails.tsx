@@ -2,7 +2,9 @@
 
 import Loading from '@/components/Loading';
 import Image from 'next/image';
+import Link from 'next/link';
 import React, { useEffect, useState } from 'react'
+import { useSession } from 'next-auth/react';
 
 
 interface PostDetailsProps {
@@ -11,6 +13,8 @@ interface PostDetailsProps {
 
 const PostDetails = ({ postId }: PostDetailsProps) => {
 
+    const { data: session } = useSession();
+
     const [post, setPost] = useState<TPost>({
         id: 0,
         body: "",
@@ -18,10 +22,15 @@ const PostDetails = ({ postId }: PostDetailsProps) => {
         userId: 0
     })
     const [comments, setComments] = useState<TComment[]>([])
+    const [comment, setComment] = useState<string>('')
     const [isLoading, setIsLoading] = React.useState<boolean>(false);
     const [author, setAuthor] = useState<TUser>({
         id: 0,
     });
+
+    const handleSubmitComment = async () => {
+
+    }
 
     useEffect(() => {
         const fetchPost = async () => {
@@ -98,6 +107,37 @@ const PostDetails = ({ postId }: PostDetailsProps) => {
 
                         </div>))
                 }
+
+                {session?.user && <form onSubmit={handleSubmitComment}
+                    className='mt-10 w-full max-w-2x1 flex flex-col gap-7 glassmorphism'>
+                    <label>
+                        <span className='font-satoshi font-semibold text-base text-gray-700'>
+                            Leave a comment
+                        </span>
+                        <textarea
+                            value={comment}
+                            required
+                            placeholder='Leave your thoughts here'
+                            className='form_textarea'
+                            onChange={e => setComment(e.target.value)} />
+                    </label>
+
+                    <div className="flex-end mx-3 mb-5 gap-4">
+                        <Link
+                            href='/'
+                            className='text-gray-500 text-sm'>
+                            Cancel
+                        </Link>
+
+                        <button
+                            type='submit'
+                            className='px-5 py-1.5 text-sm bg-primary-orange rounded-full text-white'
+
+                        >
+                            Comment
+                        </button>
+                    </div>
+                </form>}
             </div>
     )
 }

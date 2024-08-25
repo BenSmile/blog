@@ -27,6 +27,15 @@ export default function RootLayout({
           <main className='app'>
             <Nav />
             {children}
+            <footer className=" inset-x-0 bottom-0 flex justify-center items-center w-full py-3 mt-auto text-slate-700">
+              <div className="container flex flex-col items-center text-center">
+                <p>&copy; {new Date().getFullYear()} BS112. All rights reserved.</p>
+                <p>
+                  <a href="#" className="hover:underline">Privacy Policy</a> |
+                  <a href="#" className="hover:underline">Terms of Service</a>
+                </p>
+              </div>
+            </footer>
           </main>
         </Provider>
       </body>

@@ -1,5 +1,3 @@
-// __tests__/Nav.test.tsx
-
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { useSession, getProviders, signIn, signOut } from 'next-auth/react';
