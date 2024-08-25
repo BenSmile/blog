@@ -36,16 +36,13 @@ const UsersData = ({ data }: { data: TUser[] }) => {
                             <td className="border border-gray-300 px-4 py-2">{user.username}</td>
                             <td className="border border-gray-300 px-4 py-2">{user.email}</td>
                             <td className="border border-gray-300 px-4 py-2">{user.phone}</td>
-                            <td className="border border-gray-300 px-4 py-2"><Link href={`/users/${user.id}`} />
-                                <p
-                                    className="font-inter text-sm green_gradient cursor-pointer"
-                                >
+                            <td className="border border-gray-300 px-4 py-2 text-center">
+                                <Link href={`/users/${user.id}`} />
+                                <p className="font-inter text-sm green_gradient cursor-pointer">
                                     View
                                 </p>
                             </td>
                         </tr>
-
-
                     ))}
                 </tbody>
             </table>
