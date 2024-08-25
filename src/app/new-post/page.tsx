@@ -19,20 +19,28 @@ const Page = () => {
     const [isLoading, setIsLoading] = React.useState<boolean>(false);
 
     const createPost = async () => {
-        setIsLoading(true);
-        fetch('https://jsonplaceholder.typicode.com/posts', {
-            method: 'POST',
-            body: JSON.stringify(post),
-            headers: {
-                'Content-type': 'application/json; charset=UTF-8',
-            },
-        }).then(_ => {
-            setIsLoading(false);
+        try {
+            const response = await fetch('/api/posts/new-post', {
+                method: 'POST',
+                body: JSON.stringify(post),
+                headers: {
+                    'Content-type': 'application/json; charset=UTF-8',
+                },
+            });
+
+            if (!response.ok) {
+                throw new Error('Failed to create post');
+            }
+
+            // Wait for the response to be processed before navigating
+            await response.json();
+
+            // After a successful POST, navigate to the home page
             router.push('/');
-        }).catch(_ => {
-            setIsLoading(false);
-            router.push('/');
-        })
+        } catch (error) {
+            alert('Error creating post:' + error);
+        }
+
     }
 
     return (

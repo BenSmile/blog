@@ -7,7 +7,7 @@ import Link from 'next/link'
 const UsersData = ({ data }: { data: TUser[] }) => {
     return (
         <div className="mt-16 flex flex-col w-full">
-            <table className="min-w-full border-collapse border border-gray-300">
+            <table className="min-w-full border-collapse rounded-sm border border-gray-300">
                 <thead>
                     <tr>
                         <th className="border border-gray-300 px-4 py-2">#</th>

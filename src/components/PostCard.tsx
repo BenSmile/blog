@@ -32,7 +32,6 @@ const PostCard = ({ post }: PostCardProps) => {
               className="rounded-full object-contain" />
             <div className="flex flex-col">
               <h3 className="font-satoshi font-semibold text-gray-900">{post?.title?.substring(0, 20)}...</h3>
-              <p className="font-inter text-sm text-gray-500">{post.userId}</p>
             </div>
           </div>
           <div className="copy_btn" onClick={() => { }}>

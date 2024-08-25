@@ -48,7 +48,7 @@ export const PostList = () => {
     useEffect(() => {
         const fetchPosts = async () => {
             setIsLoading(true);
-            const response = await fetch('https://jsonplaceholder.typicode.com/posts');
+            const response = await fetch('/api/posts');
             const data = await response.json();
             setPosts(data);
             setIsLoading(false);

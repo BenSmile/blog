@@ -90,6 +90,8 @@ const Nav = () => {
                                             onClick={() => setToggleDropDown(false)}>
                                             Create Prompt
                                         </Link>
+                                        <Link className='dropdown_link' href='/users'>Users</Link>
+
                                         <button type='button' className='mt-5 w-full black_btn'
                                             onClick={() => {
                                                 setToggleDropDown(false);
