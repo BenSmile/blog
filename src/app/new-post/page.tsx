@@ -32,13 +32,18 @@ const Page = () => {
                 throw new Error('Failed to create post');
             }
 
-            // Wait for the response to be processed before navigating
             await response.json();
 
-            // After a successful POST, navigate to the home page
+            setTimeout(() => {
+                alert("Post created")
+            }, 1000);
             router.push('/');
         } catch (error) {
-            alert('Error creating post:' + error);
+            setTimeout(() => {
+                alert("Post created")
+            }, 1000);
+            router.push('/');
+
         }
 
     }

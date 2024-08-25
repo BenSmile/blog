@@ -21,7 +21,7 @@ const PostForm = ({ type, post, setPost, submitting, handleSubmit }: PostFormPro
                 {type} and post you IDEAAAAS
             </p>
 
-            <form onSubmit={handleSubmit}
+            <div
                 className='mt-10 w-full max-w-2x1 flex flex-col gap-7 glassmorphism'>
                 <label>
                     <span className='font-satoshi font-semibold text-base text-gray-700'>
@@ -42,7 +42,7 @@ const PostForm = ({ type, post, setPost, submitting, handleSubmit }: PostFormPro
                     <textarea
                         value={post?.body}
                         required
-                        placeholder='Write your post here'
+                        placeholder='Leave your words here'
                         className='form_textarea'
                         onChange={e => setPost({ ...post, body: e.target.value })} />
                 </label>
@@ -55,14 +55,14 @@ const PostForm = ({ type, post, setPost, submitting, handleSubmit }: PostFormPro
                     </Link>
 
                     <button
-                        type='submit'
+                        type='button' onClick={handleSubmit}
                         className='px-5 py-1.5 text-sm bg-primary-orange rounded-full text-white'
                         disabled={submitting}
                     >
                         {submitting ? `${type}...` : type}
                     </button>
                 </div>
-            </form>
+            </div>
         </section>
     )
 }

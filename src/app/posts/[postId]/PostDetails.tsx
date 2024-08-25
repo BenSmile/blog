@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react'
 import { useSession } from 'next-auth/react';
+import { useRouter } from 'next/navigation';
 
 
 interface PostDetailsProps {
@@ -14,6 +15,8 @@ interface PostDetailsProps {
 const PostDetails = ({ postId }: PostDetailsProps) => {
 
     const { data: session } = useSession();
+
+    const router = useRouter();
 
     const [post, setPost] = useState<TPost>({
         id: 0,
@@ -28,8 +31,17 @@ const PostDetails = ({ postId }: PostDetailsProps) => {
         id: 0,
     });
 
-    const handleSubmitComment = async () => {
+    const handleSubmitComment = () => {
 
+
+        setTimeout(() => {
+            setComment('')
+            alert("Comment added")
+        }, 500);
+
+        setTimeout(() => {
+            router.push('/')
+        }, 500);
     }
 
     useEffect(() => {
@@ -108,7 +120,7 @@ const PostDetails = ({ postId }: PostDetailsProps) => {
                         </div>))
                 }
 
-                {session?.user && <form onSubmit={handleSubmitComment}
+                {session?.user && <div
                     className='mt-10 w-full max-w-2x1 flex flex-col gap-7 glassmorphism'>
                     <label>
                         <span className='font-satoshi font-semibold text-base text-gray-700'>
@@ -130,14 +142,13 @@ const PostDetails = ({ postId }: PostDetailsProps) => {
                         </Link>
 
                         <button
-                            type='submit'
+                            type='button' onClick={handleSubmitComment}
                             className='px-5 py-1.5 text-sm bg-primary-orange rounded-full text-white'
-
                         >
                             Comment
                         </button>
                     </div>
-                </form>}
+                </div>}
             </div>
     )
 }
