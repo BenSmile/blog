@@ -65,11 +65,17 @@ This project is a Blog Management System built using Next.js with TypeScript. It
 5. Run the app
 
    ```
-   npm run dev
+   $ npm run dev
    ```
 
 6. Testing
 
    ```
-   npm test
+   $ npm test
+   ```
+
+   to run test with coverage
+
+   ```
+   $ npm run test:coverage
    ```
