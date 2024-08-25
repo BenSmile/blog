@@ -1,6 +1,4 @@
 import { NextRequest } from "next/server";
-import { comment } from "postcss";
-
 
 export const GET = async (req: NextRequest, { params }: { params: { id: string } }) => {
     try {

@@ -20,7 +20,7 @@ const handler = NextAuth({
       }
       return session;
     },
-    async signIn({ profile }: { profile?: any }) { // You can replace `any` with a more specific type if needed
+    async signIn({ profile }: { profile?: any }) {
       try {
 
         const userExists = users.filter((u: TUser) => {

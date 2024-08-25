@@ -3,7 +3,6 @@
 import React from "react";
 import { useState } from "react";
 import Image from 'next/image';
-import { useSession } from "next-auth/react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 
@@ -12,8 +11,6 @@ interface PostCardProps {
 }
 
 const PostCard = ({ post }: PostCardProps) => {
-
-  const { data: session } = useSession();
 
   const pathName = usePathname();
 

@@ -59,7 +59,7 @@ export const PostList = () => {
     return (
         <section className="feed">
             <form action="" className="relative w-full flex-center">
-                <input type="text" placeholder="Search for a tag or username"
+                <input type="text" placeholder="Search for a title or content"
                     value={searchText}
                     required
                     className="search_input peer"

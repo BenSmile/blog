@@ -6,12 +6,13 @@ import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import { signIn, signOut, useSession, getProviders, LiteralUnion, ClientSafeProvider } from 'next-auth/react';
 import { BuiltInProviderType } from 'next-auth/providers/index';
+import { useRouter } from 'next/navigation';
 
 type Providers = Record<LiteralUnion<BuiltInProviderType, string>, ClientSafeProvider> | null;
 
-
 const Nav = () => {
     const { data: session } = useSession();
+    const router = useRouter()
 
     const [providers, setProviders] = useState<Providers>(null);
     const [toggleDropDown, setToggleDropDown] = useState(false);
@@ -23,6 +24,11 @@ const Nav = () => {
         }
         setUpProviders();
     }, [])
+
+    const handleSignOut: any = () => {
+        signOut();
+        router.push('/')
+    }
     return (
         <nav className='flex-between w-full mb-16 pt-3'>
             <Link href='/' className='flex gap-2 flex-center'>
@@ -38,7 +44,7 @@ const Nav = () => {
                     session?.user ? <div className="flex gap-3 md:gap-5">
                         <Link className='black_btn' href='/new-post'>Create Post</Link>
                         <Link className='black_btn' href='/users'>Users</Link>
-                        <button className='outline_btn' type='button' onClick={signOut as any}>Sign Out</button>
+                        <button className='outline_btn' type='button' onClick={handleSignOut}>Sign Out</button>
                         <Link href='/profile'>
                             <Image src={session?.user?.image as string}
                                 width={37}
